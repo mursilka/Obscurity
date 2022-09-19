@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayingCards : MonoBehaviour
+namespace Obscuity
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayingCards : MonoBehaviour
     {
-        
-    }
+        private int _value;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        public int Value => _value;
+
+
+
+        public bool IsInDeck { get; set; } = true;
+
+
+
     }
 }
