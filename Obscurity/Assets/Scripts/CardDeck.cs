@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using Obscuity;
 using UnityEngine;
 
 public class CardDeck : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private CardDescriptions cardDescriptions;
+    [SerializeField] private GameObject prefab;
+    private CardsFactory _factory;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
+        _factory = new CardsFactory();
+        _factory.Init(cardDescriptions);
+
+        _factory.CreateCardModel("Card", 0);
+        
         
     }
 }
