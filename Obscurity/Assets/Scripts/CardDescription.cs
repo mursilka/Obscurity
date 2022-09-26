@@ -14,5 +14,22 @@ namespace Obscuity
         [SerializeField] private int manaCost;
         [SerializeField] private Sprite ikonSprite;
 
+        public string Name => name;
+
+        public string Description => description;
+
+        public int Damage => damage;
+
+        public int Hp => hp;
+
+        public int Armor => armor;
+
+        public int ManaCost => manaCost;
+
+        public Sprite IkonSprite
+        {
+            get => ikonSprite;
+            set => ikonSprite = value;
+        }
     }
 }

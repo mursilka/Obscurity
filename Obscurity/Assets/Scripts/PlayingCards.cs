@@ -1,21 +1,24 @@
 
+using System;
+using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.U2D;
 using UnityEngine;
 
 namespace Obscuity
 {
     public class PlayingCards : MonoBehaviour
     {
-        private int _value;
-
-
-        public int Value => _value;
-
-
-
-        public bool IsInDeck { get; set; } = true;
-
-
-
+        [SerializeField] private TextMeshPro manaCostText;
+        [SerializeField] private TextMeshPro descriptionText;
+        [SerializeField] private SpriteRenderer sprite;
+        
+        public void Initialize(CardDescription descriptionCard)
+        {
+            manaCostText.text = Convert.ToString(descriptionCard.ManaCost);
+            descriptionText.text = Convert.ToString(descriptionCard.Description);
+            sprite.sprite = descriptionCard.IkonSprite;
+        }
+      
     }
 }
