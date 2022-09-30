@@ -21,7 +21,6 @@ namespace Obscuity
         }
         public Card CreateCardModel(string nameCard, int CardType)
         {
-            Debug.Log("2");
             return cardFactory[nameCard](CardType);
         }
     }

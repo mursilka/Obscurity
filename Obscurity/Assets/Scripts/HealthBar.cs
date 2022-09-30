@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Obscuity
 {
-    public class HealthBAr : MonoBehaviour
+    public class HealthBar : MonoBehaviour
     {
         [SerializeField] private Image _healthBar;
 
