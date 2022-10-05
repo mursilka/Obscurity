@@ -1,7 +1,6 @@
 using System;
 using Obscuity;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class EnemyController : MonoBehaviour
 {

@@ -1,8 +1,5 @@
-
 using System;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.U2D;
 using UnityEngine;
 
 namespace Obscuity

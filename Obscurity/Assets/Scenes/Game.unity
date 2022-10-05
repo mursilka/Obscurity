@@ -2322,7 +2322,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1383146098}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1756568202}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1383146098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2393,7 +2405,7 @@ MonoBehaviour:
   _androidGameId: 4955787
   _iOSGameId: 4955786
   _testMode: 1
-  _showAdButton: {fileID: 912667485}
+  _showAdButton: {fileID: 1383146097}
   _androidAdUnitId: Rewarded_Android
   _iOSAdUnitId: Rewarded_iOS
 --- !u!4 &1410120630

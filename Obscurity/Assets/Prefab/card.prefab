@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1a960df7fd531fc42bc9889d07a0c154, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b790348b6bba704587930d05d4efe26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -398,9 +398,9 @@ MonoBehaviour:
   manaCostText: {fileID: 7797876977539581491}
   descriptionText: {fileID: 5333454013690236349}
   sprite: {fileID: 6912952119836854496}
-  _damage: 4
+  _damage: 0
   _hp: 0
-  _armor: 0
+  _armor: 5
   _manaCost: 1
 --- !u!1 &9122063700012645507
 GameObject:
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0430\u043D\u043E\u0441\u0438\u0442 4 \u0435\u0434. \u0443\u0440\u043E\u043D\u0430"
+  m_text: "\u041F\u043E\u043B\u0443\u0447\u0430\u0435\u0442 5 \u0435\u0434. \u0431\u0440\u043E\u043D\u0438"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}

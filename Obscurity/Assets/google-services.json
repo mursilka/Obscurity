@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "546384769015",
+    "project_id": "obscurity-9f19e",
+    "storage_bucket": "obscurity-9f19e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546384769015:android:ef08a65176af2720d5c8f2",
+        "android_client_info": {
+          "package_name": "com.Mursilka.Obscurity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546384769015-ttnntfgg866qejmh65pjcn9jk9imetm1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRRIL04pXw5Snhnbvxz0bvFH3ZOKNzZzw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546384769015-ttnntfgg866qejmh65pjcn9jk9imetm1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

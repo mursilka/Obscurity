@@ -1,8 +1,6 @@
 using System;
 using Obscuity.Ads;
 using UnityEngine;
-using UnityEngine.UI;
-
 
 namespace Obscuity
 {
