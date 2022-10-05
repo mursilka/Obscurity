@@ -12,7 +12,9 @@ namespace Obscuity
         [SerializeField] private TextMeshPro manaCostText;
         [SerializeField] private TextMeshPro descriptionText;
         [SerializeField] private SpriteRenderer sprite;
-        [SerializeField] private EnemyController _enemy;
+
+        private PlayerController _player;
+        private EnemyController _enemy;
 
         public int _damage;
         public int _hp;
@@ -22,7 +24,7 @@ namespace Obscuity
         private void Awake()
         {
             _enemy = FindObjectOfType<EnemyController>();
-            
+            _player = FindObjectOfType<PlayerController>();
         }
 
         public void Initialize(CardDescription descriptionCard)
@@ -39,7 +41,9 @@ namespace Obscuity
 
         private void OnDestroy()
         {
-            _enemy.Health(_damage);
+            if(_damage>0)_enemy.Health(_damage);
+            if(_armor>0)_player.Armor(_armor);
+            
         }
 
     }

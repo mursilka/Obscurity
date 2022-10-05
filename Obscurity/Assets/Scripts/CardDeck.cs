@@ -14,22 +14,21 @@ public class CardDeck : MonoBehaviour
     private PlayingCards _playingCards;
     private List<Card> _listCard;
     private List<Card> _listReset;
+    private GameManager _gameManager;
     private void Awake()
     {
+        _gameManager = FindObjectOfType<GameManager>();
         _playingCards=prefab.GetComponent<PlayingCards>();
         _listCard = new List<Card>();
         _listReset = new List<Card>();
+
     }
 
     private void Start()
     {
-        AddListCard();
-        StartingHand();
-    }
-
-    private void Update()
-    {
-        HandControl();
+        _gameManager.OnStartGame += StartingHand;
+        _gameManager.OnHandChanged += HandControl;
+        AddListCard(); 
     }
 
     private void AddListCard()
@@ -69,19 +68,29 @@ public class CardDeck : MonoBehaviour
 
     private void HandControl()
     {
-        if (transform.childCount < 5 && _listCard.Count!=0)
+        while (transform.childCount < 5)
         {
-            var element =_listCard[Random.Range(0, _listCard.Count)];
-            _playingCards.Initialize(element.CardDescription);
-            Instantiate(prefab,transform);
-            _listReset.Add(element);
-            _listCard.Remove(element);
+            if (transform.childCount < 5 && _listCard.Count!=0)
+            {
+                var element =_listCard[Random.Range(0, _listCard.Count)];
+                _playingCards.Initialize(element.CardDescription);
+                Instantiate(prefab,transform);
+                _listReset.Add(element);
+                _listCard.Remove(element);
+            }
+
+            if (_listCard.Count == 0)
+            {
+                _listCard.AddRange(_listReset);
+                _listReset.Clear();
+            } 
         }
 
-        if (_listCard.Count == 0)
-        {
-            _listCard.AddRange(_listReset);
-            _listReset.Clear();
-        }
+    }
+
+    private void OnDestroy()
+    {
+        _gameManager.OnStartGame -= StartingHand;
+        _gameManager.OnHandChanged -= HandControl;
     }
 }
