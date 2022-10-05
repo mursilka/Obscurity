@@ -52,8 +52,8 @@ namespace Obscuity
 
         public void StartGame()
         {
-            _ui.ShowGameScreen();
             OnStartGame?.Invoke();
+            _ui.ShowGameScreen();
         }
 
         public void MoveButton()

@@ -25,8 +25,7 @@ public class CardDeck : MonoBehaviour
     private void Start()
     {
         _gameManager.OnStartGame += StartingHand;
-        _gameManager.OnHandChanged += HandControl;
-        AddListCard(); 
+        _gameManager.OnHandChanged += HandControl; 
     }
 
     private void AddListCard()
@@ -54,6 +53,17 @@ public class CardDeck : MonoBehaviour
 
     private void StartingHand()
     {
+        if (transform.childCount > 0)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
+            _listReset.Clear();
+            _listCard.Clear();
+        }
+        AddListCard(); 
+
         for (int i = 1; i < 6; i++)
         {
             var element = _listCard[Random.Range(0, _listCard.Count)]; 

@@ -43,9 +43,7 @@ namespace Obscuity
 
         private void Awake()
         {
-            _currentHp = startHp;
-            _currentArmor = startArmor;
-            _currentMana = startMana;
+
             _mainCamera = Camera.main;
             _layerMask = LayerMask.GetMask(PLAYING_CARD);
             _layerMaskEnemy = LayerMask.GetMask(ENEMY);
@@ -55,9 +53,21 @@ namespace Obscuity
 
         private void Start()
         {
+            _gameManager.OnStartGame += StartHpChanged;
             _gameManager.OnHandChanged += ResetMana;
             _ads.OnButtonHealthChanged += HalfHp;
             OnArmor?.Invoke(_currentArmor);
+        }
+
+        private void StartHpChanged()
+        {
+            _currentHp = startHp;
+            float _currentHealthAsPercantage = (float)_currentHp / startHp;
+            OnHealthChanged?.Invoke(_currentHealthAsPercantage, _currentHp, startHp);
+            _currentArmor = startArmor;
+            OnArmor?.Invoke(_currentArmor);
+            _currentMana = startMana;
+            OnMana?.Invoke(_currentMana,startMana);
         }
 
 
@@ -79,9 +89,10 @@ namespace Obscuity
                 _currentHp = _currentHp + _currentArmor - damage;
                 _currentArmor = 0;
                 OnArmor?.Invoke(_currentArmor);
-                if (_currentHp < 0)
+                if (_currentHp <=0)
                 {
                     OnDead?.Invoke();
+                    _currentArmor = startArmor;
                 }
                 else
                 {
@@ -168,6 +179,7 @@ namespace Obscuity
         
         private void OnDestroy()
         {
+            _gameManager.OnStartGame -= StartHpChanged;
             _gameManager.OnHandChanged -= ResetMana;
             _ads.OnButtonHealthChanged -= HalfHp;
         }

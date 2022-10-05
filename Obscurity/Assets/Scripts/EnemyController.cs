@@ -14,8 +14,8 @@ public class EnemyController : MonoBehaviour
     private int _currentHp;
     private int _currentArmor=0;
     private PlayerController _player;
-    
-    int index = 0;
+    private GameManager _gameManager;
+    int index;
     
     public Action<float,int,int> OnHealthChangedEnemy;
     public Action OnDeadEnemy;
@@ -25,13 +25,22 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        _currentHp = hp;
+        
         _player = FindObjectOfType<PlayerController>();
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Start()
     {
+        _gameManager.OnStartGame += StartPatametrsChanged;
         OnArmor?.Invoke(_currentArmor);
+    }
+
+    private void StartPatametrsChanged()
+    {
+        _currentHp = hp;
+        index = 0;
+
     }
 
     public void Health(int damageHP)
