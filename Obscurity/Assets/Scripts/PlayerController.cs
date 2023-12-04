@@ -16,6 +16,7 @@ namespace Obscuity
         private GameManager _gameManager;
         private CardDeck _cardDeck;
         private PlayingCards _holdCard;
+        private Vector3 _startPositionHoldCard;
         private Camera _mainCamera;
         private LayerMask _layerMask;
         private LayerMask _layerMaskEnemy;
@@ -141,6 +142,7 @@ namespace Obscuity
                     if (_currentMana - card._manaCost >= 0)
                     {
                         _holdCard = card;
+                        _startPositionHoldCard = _holdCard.transform.position;
                         _holdCard.transform.Translate(Vector3.back * 0.5f, Space.World);
                         Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
                         var position = _holdCard.transform.position;
@@ -162,6 +164,11 @@ namespace Obscuity
                 OnMana?.Invoke(_currentMana,startMana);
                 Destroy(_holdCard.gameObject);
             }
+            else
+            {
+                _holdCard.gameObject.transform.position = _startPositionHoldCard;
+            }
+
         }
 
         private void MoveCardWithMouse()

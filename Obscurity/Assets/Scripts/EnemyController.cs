@@ -32,11 +32,11 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        _gameManager.OnStartGame += StartPatametrsChanged;
+        _gameManager.OnStartGame += StartParametrsChanged;
         OnArmor?.Invoke(_currentArmor);
     }
 
-    private void StartPatametrsChanged()
+    private void StartParametrsChanged()
     {
         _currentHp = hp;
         index = 0;
