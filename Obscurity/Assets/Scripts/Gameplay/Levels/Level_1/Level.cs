@@ -10,5 +10,13 @@ namespace Obscuity
 
         public Vector3 SpawnPointEnemy => spawnPointEnemy.position;
 
+        private void Start()
+        {
+            
+            Instantiate(enemyPrefab, spawnPointEnemy);
+            
+        }
     }
+
+    
 }
