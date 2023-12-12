@@ -28,5 +28,10 @@ namespace Obscuity
             PlayerCharacter playerPrefab = _playerCongfig.Player;
             _player = Object.Instantiate(playerPrefab);
         }
+
+        public void Update() 
+        {
+            
+        }
     }
 }
